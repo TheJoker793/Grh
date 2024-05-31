@@ -11,7 +11,7 @@ import { Department } from '../Model';
 })
 export class AddEmployeComponent implements OnInit {
   departments:Department[]=[];
-  //selectedDepartementId:number|null=null
+  selectedDepartment:number|null=null
 
   constructor(private employeService:EmployeService,
               private departementService:DepartementService,
@@ -34,17 +34,25 @@ export class AddEmployeComponent implements OnInit {
 
 
   addEmploye(employeeForme:any){
+    console.log("start to add");
+    
     let employee={
+      //cin:employeeForme.cin,
+      //
+      //
+      //dateOfBirth:employeeForme.dateOfBirth,
+      
       cin:employeeForme.cin,
       firstName:employeeForme.firstName,
-      lastName:employeeForme.lastName,
-      dateOfBirth:employeeForme.dateOfBirth,
+      lastName:employeeForme.lastName,      
+      dateOfBirth:null,
       email:employeeForme.email,
       phone:employeeForme.phone,
       address:employeeForme.address,
-      
-      departementId:1,
+      departementId:this.selectedDepartment,
     };
+    
+    
     this.employeService.addEmploye(employee).subscribe(
       ()=>{
         console.log(employee);

@@ -7,7 +7,7 @@ export interface Employe{
     cin:string,
     firstName:string,
     lastName:string,
-    dateOfBirth?:Date,
+    dateOfBirth:Date|null,
     email:string,
     phone:string,
     address:string,

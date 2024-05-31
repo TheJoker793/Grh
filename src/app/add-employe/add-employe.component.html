@@ -3,39 +3,39 @@
 <div class="row">
     <div class="col md-4">
         <label for="cin" class="form-label">Cin:</label>
-        <input type="text" class="form-control" id="cin" required>
+        <input ngModel name="cin" type="text" class="form-control" id="cin" required>
     </div>
 
     <div class="col md-4">
         <label for="firstName" class="form-label">firstName:</label>
-        <input type="text" class="form-control" id="firstName" required>
+        <input ngModel name="firstName" type="text" class="form-control" id="firstName" required>
     </div>
     <div class="col md-4">
         <label for="lastName" class="form-label">lastName:</label>
-        <input type="text" class="form-control" id="lastName" required>
+        <input ngModel name="lastName" type="text" class="form-control" id="lastName" required>
     </div>
 </div>
 <div class="row">
     <div class="col md-4">
         <label for="dateOfBirth" class="form-label">Date of birth:</label>
-        <input type="date" class="form-control" id="dateOfBirth" required>
+        <input ngModel name="dateOfBirth" type="date" class="form-control" id="dateOfBirth" required>
     </div>
     <div class="col md-4">
         <label for="email" class="form-label">Email:</label>
-        <input type="text" class="form-control" id="email" required>
+        <input ngModel name="email" type="text" class="form-control" id="email" required>
     </div>
     <div class="col md-4">
         <label for="phone" class="form-label">phone:</label>
-        <input type="text" class="form-control" id="phone" required>
+        <input ngModel name="phone" type="text" class="form-control" id="phone" required>
     </div>
     </div>
     <div class="col md-4">
         <label for="address" class="form-label">Address:</label>
-        <input type="text" class="form-control" id="address" required>
+        <input ngModel name="address" ngModel type="text" class="form-control" id="address" required>
     </div>
-    <select class="form-select" id="departementId"  required>
+    <select class="form-select" id="departementId" (ngModel)="selectedDepartment"  required>
         <option selected disabled value="">Choose departement</option>
-        <option *ngFor="let dep of departments" >{{dep.name}} </option>
+        <option *ngFor="let dep of departments" [value]="dep.id" >{{dep.name}} </option>
       </select>
 
 

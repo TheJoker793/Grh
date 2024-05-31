@@ -16,7 +16,11 @@ export class EmployeService {
     return this.http.get<Employe>(environement.baseUrl+"Employes/"+id)
   }
   addEmploye(employe:Employe) {
+    console.log("post");
+    
     return this.http.post<Employe>(environement.baseUrl+"Employes",employe)
+    
+    
   }
   updateEmploye(employe:Employe){
     return this.http.put<Employe>(environement.baseUrl+`Employes/${employe.cin}`,employe)
