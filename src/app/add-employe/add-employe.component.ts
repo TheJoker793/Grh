@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
 import { EmployeService } from '../services/employe.service';
 import { Router } from '@angular/router';
 import { DepartementService } from '../services/departement.service';
@@ -10,8 +10,9 @@ import { Department } from '../Model';
   styleUrl: './add-employe.component.css'
 })
 export class AddEmployeComponent implements OnInit {
-  departments:Department[]=[];
-  selectedDepartment:number|null=null
+ @Input() departments:Department[]=[];
+ @Output()departementSelected=new EventEmitter<number>();
+  selectedDepartment:number|undefined;
 
   constructor(private employeService:EmployeService,
               private departementService:DepartementService,
@@ -20,9 +21,12 @@ export class AddEmployeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.allDepartements();
-    console.log();
     
   }
+
+
+
+
   allDepartements(){
     return this.departementService.getAllDepartment().subscribe(
       (data:Department[])=>{
@@ -31,16 +35,16 @@ export class AddEmployeComponent implements OnInit {
 
     )
   }
+  onDepartementIdChange(event:any){
+    this.selectedDepartment=event.target.value
+
+  }
 
 
   addEmploye(employeeForme:any){
     console.log("start to add");
     
     let employee={
-      //cin:employeeForme.cin,
-      //
-      //
-      //dateOfBirth:employeeForme.dateOfBirth,
       
       cin:employeeForme.cin,
       firstName:employeeForme.firstName,

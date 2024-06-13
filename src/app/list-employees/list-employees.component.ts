@@ -29,5 +29,18 @@ export class ListEmployeesComponent implements OnInit {
   GoAddEmploye(){
     this.router.navigate(["addEmployee"]);
   }
+  goUpdate(emp:any){
+    this.router.navigate(["updateEmploye",emp.cin]);
+
+
+  }
+  deleteEmploye(emp:any){
+    this.employeesService.deleteEmploye(emp).subscribe(
+      ()=>{
+        this.refrech();
+
+      }
+    )
+  }
 
 }

@@ -50,5 +50,6 @@ export class ListDepartementComponent implements OnInit {
     this.router.navigate(["updateDepartement",dep.id])
 
   }
+  
 
 }

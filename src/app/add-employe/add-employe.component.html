@@ -33,7 +33,7 @@
         <label for="address" class="form-label">Address:</label>
         <input ngModel name="address" ngModel type="text" class="form-control" id="address" required>
     </div>
-    <select class="form-select" id="departementId" (ngModel)="selectedDepartment"  required>
+    <select class="form-select" id="departementId" (change)="onDepartementIdChange($event)"  required>
         <option selected disabled value="">Choose departement</option>
         <option *ngFor="let dep of departments" [value]="dep.id" >{{dep.name}} </option>
       </select>

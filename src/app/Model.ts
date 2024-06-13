@@ -4,14 +4,14 @@ export interface Department{
    sigle:string
 }
 export interface Employe{
-    cin:string,
+    cin:number|string,
     firstName:string,
     lastName:string,
     dateOfBirth:Date|null,
     email:string,
     phone:string,
     address:string,
-    departementId?:number|null,
+    departementId?:number|undefined,
     departementSigle?:string
 
-}
+} 

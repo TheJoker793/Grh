@@ -10,7 +10,7 @@
         <th scope="col">Date of birth</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
-        <th scope="col">Sigle</th>
+        <th scope="col">Departement</th>
         <th scope="col">Action</th>
         
 
@@ -29,7 +29,7 @@
         <th scope="col">{{emp.email}}</th>
         <th scope="col">{{emp.phone}}</th>
         <th scope="col">{{emp.departementSigle}}</th>
-       <td><button  class="btn btn-warning" >update</button> <button class=" btn btn-danger">delete</button></td>
+       <td><button  class="btn btn-warning" (click)="goUpdate(emp)" >update</button> <button class=" btn btn-danger" (click)="deleteEmploye(emp)">delete</button></td>
       </tr>
      
     </tbody>

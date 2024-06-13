@@ -12,7 +12,7 @@ export class EmployeService {
   getAllEmployees(){
     return this.http.get<Employe[]>(environement.baseUrl+"Employes")
   }
-  getEmployeById(id:number){
+  getEmployeById(id:number|string){
     return this.http.get<Employe>(environement.baseUrl+"Employes/"+id)
   }
   addEmploye(employe:Employe) {
