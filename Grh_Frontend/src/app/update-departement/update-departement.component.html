@@ -1,0 +1,10 @@
+<h1>Update departement</h1>
+<div class="form-group">
+    <label for="nom">Name</label>
+    <input [(ngModel)]="name" required  type="text" class="form-control" id="zz" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="sigle">Sigle</label>
+    <input [(ngModel)]="sigle" type="text" class="form-control" id="sigle" aria-describedby="emailHelp">
+  </div>
+  <button class="btn btn-success" (click)="saveUpdateDepartement()">Update</button>

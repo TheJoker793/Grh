@@ -1,0 +1,14 @@
+<h2 align="center">Add new departement</h2>
+
+<form #departementForm="ngForm" (ngSubmit)="addDepartement(departementForm.value)">
+  <div class="form-group">
+    <label for="name">Nom</label>
+    <input ngModel required name="name" type="text" class="form-control" id="nom"  >
+  </div>
+  <div class="form-group">
+    <label for="sigle">Sigle</label>
+    <input ngModel required name="sigle" type="text" class="form-control" id="sigle" aria-describedby="emailHelp" >
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,20 @@
+#Etape1:Etape de construction
+
+#Utiliser version 16 de node.js comme image de base de l'etape de construction
+FROM node:18 AS build 
+#Definit le répertoire de travail à /app à l'interieur du conteneur
+WORKDIR /app
+#copier package.json et package-lock.json dans le repertoire de travail
+COPY package.json package-lock.json ./
+#installer les dépendances npm definit dans le fichier package.json
+RUN npm install
+#copier le reste du code source du repertoire courant vers le repertoire de travail dans le conteneur
+COPY . .
+#execute la construction en production de l'application
+RUN npm run build --prod 
+
+#Etape2: Etape d'execution
+#Utiliser la derniere version de nginx comme image de base pour l'etape d'execution 
+FROM nginx:latest
+#copy l'application construite de l'etape de construction vers le repertoire de service nginx
+COPY --from=build /app/dist/frontend-grh/browser/* /usr/share/nginx/html/

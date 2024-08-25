@@ -1,0 +1,41 @@
+<h1>Update Employee</h1>
+<form>
+<div class="col md-4">
+    <label for="cin" class="form-label">Cin:</label>
+    <input [ngModel] name="cin" type="text" class="form-control" id="cin" required>
+</div>
+
+<div class="col md-4">
+    <label for="firstName" class="form-label">firstName:</label>
+    <input [ngModel] name="firstName" type="text" class="form-control" id="firstName" required>
+</div>
+<div class="col md-4">
+    <label for="lastName" class="form-label">lastName:</label>
+    <input [ngModel] name="lastName" type="text" class="form-control" id="lastName" required>
+</div>
+
+<div class="row">
+<div class="col md-4">
+    <label for="dateOfBirth" class="form-label">Date of birth:</label>
+    <input [ngModel] name="dateOfBirth" type="date" class="form-control" id="dateOfBirth" required>
+</div>
+<div class="col md-4">
+    <label for="email" class="form-label">Email:</label>
+    <input [ngModel] name="email" type="text" class="form-control" id="email" required>
+</div>
+<div class="col md-4">
+    <label for="phone" class="form-label">phone:</label>
+    <input [ngModel] name="phone" type="text" class="form-control" id="phone" required>
+</div>
+</div>
+<div class="col md-4">
+    <label for="address" class="form-label">Address:</label>
+    <input [ngModel] name="address" ngModel type="text" class="form-control" id="address" required>
+</div>
+<select class="form-select" id="departementId" (change)="onDepartementIdChange($event)"  required>
+    <option selected disabled value="">Choose departement</option>
+    <option *ngFor="let dep of allDepartements" [value]="dep.id" >{{dep.name}} </option>
+  </select>
+
+  <button class="btn btn-success" (click)="saveUpdateEmploye()">Save</button>
+</form>
